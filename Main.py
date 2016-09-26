@@ -58,7 +58,7 @@ def do_menu():
     while not is_valid:
         # solicit user input and act on it until we get valid input
         show_menu()
-        user_choice = raw_input()
+        user_choice = input()
         handle_menu_choice(user_choice)
 # end do_menu
 
@@ -70,20 +70,20 @@ def show_tile_values():
 
 # verifies if a word is in the dictionary
 def check_word():
-    user_word = raw_input("Please enter a word, or leave blank to exit.\n> ")
+    user_word = input("Please enter a word, or leave blank to exit.\n> ")
     while user_word != "":
         if (sDict.find(user_word)):
             print(user_word + " is in the dictionary!")
         else:
             print("Sorry, " + user_word + " is not in the dictionary.")
-        user_word = raw_input("Please enter a word, or leave blank to exit.")
+        user_word = input("Please enter a word, or leave blank to exit.")
     # return to the main menu when done
     do_menu()
 # end check_word
 
 def find_anagrams():
     # find anagrams of a word
-    user_word = raw_input("Please enter a word or string of letters to check, or leave blank to exit.\n> ")
+    user_word = input("Please enter a word or string of letters to check, or leave blank to exit.\n> ")
     while user_word != "":
         cohort = aDict.findanagrams(user_word)
         if (cohort != None):
@@ -91,7 +91,7 @@ def find_anagrams():
         else:
             print('We have no anagrams on file for ' + user_word)
         # prompt for fresh input
-        user_word = raw_input("Please enter a word or string of letters to check, or leave blank to exit.\n> ")
+        user_word = input("Please enter a word or string of letters to check, or leave blank to exit.\n> ")
     # return to main menu when done
     do_menu()
 # end find_anagrams
@@ -99,11 +99,11 @@ def find_anagrams():
 def word_value():
     # fetches the value of a word
     # solicit input
-    user_word = raw_input("Please enter a word whose value (score) you wish to determine, or leave blank to exit.\n> ")
+    user_word = input("Please enter a word whose value (score) you wish to determine, or leave blank to exit.\n> ")
     while user_word != "":
         points = bag.wordscore(user_word,sDict)
         print(user_word + " is worth " + str(points) + " points (zero points means the word is not in the dictionary).")
-        user_word = raw_input("Please enter another word whose value you wish to determine, or leave blank to exit.\n> ")
+        user_word = input("Please enter another word whose value you wish to determine, or leave blank to exit.\n> ")
     # return to main menu when done
     do_menu()
 

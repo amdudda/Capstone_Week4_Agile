@@ -62,7 +62,7 @@ class TileBag():
             scorechart[points].sort()
             for l in scorechart[points]:
                 lets += l + " "
-            print pts + " points: " + lets
+            print (pts + " points: " + lets)
         print("\n")
 
     def gettiles(self):
