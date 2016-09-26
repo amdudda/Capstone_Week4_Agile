@@ -30,7 +30,7 @@ class Game():
             # verify the rack has valid plays available, else load new rack.
             if self.player.rack.hasvalidplay(self.anagrams):
                 # solicit input and validate it
-                a_play = raw_input("Please enter a word, or type x to exit.")
+                a_play = input("Please enter a word, or type x to exit.")
                 if (self.player.rack.isvalidplay(a_play) and self.lexicon.find(a_play)):
                     print("That is a valid play!\n")
                     self.player.rack.playtiles(a_play)
