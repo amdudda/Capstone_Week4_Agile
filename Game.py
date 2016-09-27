@@ -33,6 +33,7 @@ class Game():
                 a_play = input("Please enter a word, or type x to exit.")
                 if (self.player.rack.isvalidplay(a_play) and self.lexicon.find(a_play)):
                     print("That is a valid play!\n")
+                    # TODO report the point value for the word - Tiles object has a method to do this
                     self.player.rack.playtiles(a_play)
                     self.player.rack.loadtiles(self.bag)
                 else:

@@ -62,6 +62,8 @@ class Anagrams():
         return anagram_list
     # end findanagrams
 
+    # TODO - a method to find the highest scoring word available in a set of letters (Anna will do this)
+
 def alphabetize(w):
     # takes a word and rearranges its letters alphabetically - taking advantage of list.sort() in Python
     letters = []
