@@ -107,6 +107,23 @@ def word_value():
     # return to main menu when done
     do_menu()
 
+# a method to find the highest scoring word available in a set of letters (Anna will do this)
+def getbestword(letters,tilebag):
+    # this accepts a string and a tilebag and finds the highest scoring word possible from that set of letters
+    # it returns a tuple containing the best word and its point value
+    all_words = aDict.findanagrams(letters)
+    best_word = ''
+    high_score = 0
+    for entry in all_words:
+        # if the word is worth more points than the current highest value word found, update best word and high score
+        wordscore = tilebag.wordscore(entry, sDict)
+        if wordscore > high_score:
+            best_word = entry
+            high_score = wordscore
+    # then return a tuple with our findings. note that a score of zero means no anagrams were found.
+    return (best_word, high_score)
+
+
 # handles main menu user input
 def handle_menu_choice(i):
     global is_valid
