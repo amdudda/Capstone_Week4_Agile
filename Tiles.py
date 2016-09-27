@@ -34,14 +34,14 @@ class TileBag():
         # decrements the number of tiles of that letter available
         self.tiles[l][0] += 1
 
-    # def wordscore(self,word,lexicon):
-    #     # returns the score of a set of letters
-    #     # TODO does this really belong here, or in another object/method?
-    #     score = 0
-    #     if lexicon.find(word):
-    #         for letter in word:
-    #             score += self.valueof(letter)
-    #     return score
+    def wordscore(self,word,lexicon):
+        # returns the score of a set of letters
+        # TODO does this really belong here, or in another object/method?
+        score = 0
+        if lexicon.find(word):
+            for letter in word:
+                score += self.valueof(letter)
+        return score
 
     # MISC GETTERS / SETTERS
     def showtilevalues(self):
