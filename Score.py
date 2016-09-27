@@ -1,4 +1,5 @@
 import Tiles
+import Player
 class score():
 
 
@@ -13,7 +14,9 @@ class score():
         return score
     def compare_score(self):
         print("to compare scores")
+        #Todo: when we have more player we con code this
 
-    def add_points(self):
-        point_score = score.score_word()
+    def add_points(self, word):
+        point_score = score.score_word(word)
+
         print("")
