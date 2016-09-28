@@ -54,3 +54,27 @@ class Rack():
             bag.incrementtile(letter)
             self.tiles.remove(letter)
         self.loadtiles(bag)
+
+    def usetheseletters(self,string):
+        # replaces the rack with the letters of whatever string is passed
+        # clear the set of tiles assigned by the constructor
+        self.tiles = []
+        for letter in string:
+            self.tiles.append(letter)
+
+    # a method to find the highest scoring word available in the rack (Anna will do this)
+    def findbestword(self, tilebag,anagram_set,dictionary):
+        # this accepts a string and a tilebag and finds the highest scoring word possible from that set of letters
+        # it returns a tuple containing the best word and its point value
+        letters = ''.join(self.tiles)
+        all_words = anagram_set.findanagrams(letters)
+        best_word = ''
+        high_score = 0
+        for entry in all_words:
+            # if the word is worth more points than the current highest value word found, update best word and high score
+            wordscore = tilebag.wordscore(entry, dictionary)
+            if wordscore > high_score:
+                best_word = entry
+                high_score = wordscore
+        # then return a tuple with our findings. note that a score of zero means no anagrams were found.
+        return (best_word, high_score)

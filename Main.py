@@ -1,4 +1,4 @@
-import Dictionary, Anagrams, Tiles, Game
+import Dictionary, Anagrams, Tiles, Game, Rack
 
 """ STATIC VALUES"""
 
@@ -7,8 +7,9 @@ OPTION_SHOWTILEVALUES = '0'
 OPTION_FINDWORD = '1'
 OPTION_FINDANAGRAMS = '2'
 OPTION_WORDVALUE = '3'
-OPTION_PLAYGAME = '4'
-OPTION_QUIT = '5'
+OPTION_BESTWORD = '4'
+OPTION_PLAYGAME = '5'
+OPTION_QUIT = '6'
 
 """ PROGRAM INITIALIZATION """
 # this file is uploaded from the Moby Words project; see http://icon.shef.ac.uk/Moby/mwords.html for details
@@ -46,8 +47,9 @@ def show_menu():
     lines.append("\t1. Check if a word is in my dictionary")
     lines.append("\t2. Find anagrams of a word or series of letters")
     lines.append("\t3. Determine the score for a word.")
-    lines.append("\t4. Play Anagramarama")
-    lines.append("\t5. Quit :( ")
+    lines.append("\t4. Find the highest scoring word in a set of letters")
+    lines.append("\t5. Play Anagramarama")
+    lines.append("\t6. Quit :( ")
     lines.append("> ")
     for l in lines:
         print(l)
@@ -107,22 +109,19 @@ def word_value():
     # return to main menu when done
     do_menu()
 
+# takes user input for letters to use and passes it to getbestword()
+def bestword():
+    userinput = ''
+    while userinput == '':
+        userinput = input('Please enter the letters you want to find the best scoring word for.')
+    best = (getbestword(userinput, bag))
+    print("The word '%s' is worth %d points." % best)
+
 # a method to find the highest scoring word available in a set of letters (Anna will do this)
 def getbestword(letters,tilebag):
-    # this accepts a string and a tilebag and finds the highest scoring word possible from that set of letters
-    # it returns a tuple containing the best word and its point value
-    all_words = aDict.findanagrams(letters)
-    best_word = ''
-    high_score = 0
-    for entry in all_words:
-        # if the word is worth more points than the current highest value word found, update best word and high score
-        wordscore = tilebag.wordscore(entry, sDict)
-        if wordscore > high_score:
-            best_word = entry
-            high_score = wordscore
-    # then return a tuple with our findings. note that a score of zero means no anagrams were found.
-    return (best_word, high_score)
-
+    my_tiles = Rack.Rack(bag)
+    my_tiles.usetheseletters(letters)
+    return my_tiles.findbestword(bag,aDict,sDict)
 
 # handles main menu user input
 def handle_menu_choice(i):
@@ -149,8 +148,13 @@ def handle_menu_choice(i):
         exit()
     elif (i == OPTION_SHOWTILEVALUES):
         show_tile_values()
+    elif (i == OPTION_BESTWORD):
+        bestword()
     else:
         print("You have made an invalid selection.  Please try again.\n")
+
+
+
 # end handle_menu_choice
 
 
