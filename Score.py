@@ -4,7 +4,8 @@ class score():
 
 
     def __init__(self):
-     print("score init")
+        self.points = 0
+
     def score_word(self, word, lexicon):
         print("this were score word")
         score = 0
