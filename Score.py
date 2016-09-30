@@ -11,7 +11,7 @@ class score():
         score = 0
         if lexicon.find(word):
             for letter in word:
-                score += Tiles.TileBag.valueof(Tiles.TileBag, letter)
+                score += Tiles.TileBag.valueof(letter)
         return score
     def compare_score(self):
         print("to compare scores")
@@ -20,4 +20,4 @@ class score():
     def add_points(self, word):
         point_score = score.score_word(word)
 
-        print("")
+        return point_score

@@ -34,7 +34,8 @@ class Game():
                 if (self.player.rack.isvalidplay(a_play) and self.lexicon.find(a_play)):
                     print("That is a valid play!\n")
                     # TODO report the point value for the word - Tiles object has a method to do this
-                    print("Your score is ", self.player.points(a_play))
+                    score = self.player.score.score_word(a_play, self.lexicon)
+                    print(self.player.points(score))
                     self.player.rack.playtiles(a_play)
                     self.player.rack.loadtiles(self.bag)
                     # self.Player.rack.
