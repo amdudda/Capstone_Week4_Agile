@@ -15,5 +15,8 @@ class Player():
     # def get_point(self, points):
     #     self.score += points
 
-    def points(self):
-        return self.score()
+    def points(self, word):
+        score = 0
+        for letter in word.upper():
+             score += Tiles.TileBag.valueof(letter)
+        return score

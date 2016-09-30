@@ -16,6 +16,7 @@ class TileBag():
                       'V' : [2, 4], 'W' : [2, 4], 'Y' : [2, 4], 'K' : [1, 5], 'J' : [1, 8], 'X' : [1, 8],
                       'Q' : [1, 10], 'Z' : [1, 10]}
 
+
     def valueof(self,l):
         # return the value of a given letter - make sure we convert the character to uppercase
         l = l.upper()

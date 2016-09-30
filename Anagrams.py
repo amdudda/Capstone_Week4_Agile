@@ -19,7 +19,7 @@ class Anagrams():
             else:
                 self.cohorts[k] = [w, ]
 
-    def lookup(self,word):
+    def lookup(self, word):
         # finds a word and returns its cohort
         w = alphabetize(word)
         if (w in self.cohorts):
