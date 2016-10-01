@@ -1,7 +1,7 @@
 """
 Player class - has a rack object involved.
 """
-import Rack, Tiles, Score
+import Rack, Tiles, Score, Dictionary
 
 class Player():
     # every player has a rack of tiles
@@ -11,11 +11,12 @@ class Player():
         self.rack = Rack.Rack(bag)
         # intial score zero
         self.score = Score.score()
+
     #
     # def get_point(self, points):
     #     self.score += points
 
-    def points(self, score):
-        points = 0
-        points += score.score_word(score)
-        return points
+    def points(self, word):
+        score = 0
+        score += Score.score.score_word(word)
+        return score

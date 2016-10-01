@@ -1,5 +1,7 @@
 import Tiles
 import Player
+
+
 class score():
 
 
@@ -7,12 +9,13 @@ class score():
         self.points = 0
 
     def score_word(self, word, lexicon):
-        print("this were score word")
-        score = 0
+        word = word.upper()
+        self.points = 0
         if lexicon.find(word):
             for letter in word:
-                score += Tiles.TileBag.valueof(letter)
-        return score
+                self.points += Tiles.TileBag.valueof(letter)
+        return self.points
+
     def compare_score(self):
         print("to compare scores")
         #Todo: when we have more player we con code this
