@@ -4,7 +4,6 @@ import Player
 
 class score():
 
-
     def __init__(self):
         self.points = 0
 
@@ -22,5 +21,8 @@ class score():
 
     def add_points(self, word):
         point_score = score.score_word(word)
-
         return point_score
+
+    # TODO??  I think this would be a better way to increment points - AMD
+    def increase_score(self,pts):
+        self.points += pts

@@ -34,8 +34,11 @@ class Game():
                 if (self.player.rack.isvalidplay(a_play) and self.lexicon.find(a_play)):
                     print("That is a valid play!\n")
                     # TODO report the point value for the word - Tiles object has a method to do this
-                    score = self.player.score.score_word(a_play, self.lexicon)
-                    print(self.player.points(score))
+                    # score = self.player.score.score_word(a_play, self.lexicon)
+                    # TODO this works - also check my suggested change in Score object.
+                    play_points = self.bag.wordscore(a_play,self.lexicon)
+                    print("You have scored %d points with '%s'!" % (play_points, a_play))
+                    # TODO increment player's score here, I think.
                     self.player.rack.playtiles(a_play)
                     self.player.rack.loadtiles(self.bag)
                     # self.Player.rack.
