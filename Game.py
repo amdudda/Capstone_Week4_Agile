@@ -2,7 +2,7 @@
 This encapsulates the game: take a dictionary, a bunch of anagrams, and a bag of tiles, and start playing
 """
 
-import Player,Rack,Tiles,Anagrams,Dictionary
+import Player,Rack,Tiles,Anagrams,Dictionary, Score
 
 class Game():
     def __init__(self,lexicon,anagrams,bag):
@@ -25,6 +25,7 @@ class Game():
         6. refill the rack
         7. return to #1
         """
+        total_points = 0
         while (a_play != "x" and a_play !="X"):
             self.showrack()
             # verify the rack has valid plays available, else load new rack.
@@ -36,9 +37,12 @@ class Game():
                     # TODO report the point value for the word - Tiles object has a method to do this
                     # score = self.player.score.score_word(a_play, self.lexicon)
                     # TODO this works - also check my suggested change in Score object.
-                    play_points = self.bag.wordscore(a_play,self.lexicon)
+                    play_points = self.bag.wordscore(a_play, self.lexicon)
                     print("You have scored %d points with '%s'!" % (play_points, a_play))
                     # TODO increment player's score here, I think.
+                    total_points += self.player.points(play_points)/2
+                    # total_points = self.player.score.points(play_points)
+                    print("The total amount of points you have is ",  total_points)
                     self.player.rack.playtiles(a_play)
                     self.player.rack.loadtiles(self.bag)
                     # self.Player.rack.

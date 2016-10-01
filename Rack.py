@@ -5,7 +5,7 @@ import random
 import Tiles
 
 class Rack():
-    def __init__(self,bag):
+    def __init__(self, bag):
         # draw tiles from bag
         # select a random letter of the alphabet
         self.tiles = []
@@ -13,14 +13,14 @@ class Rack():
         self.loadtiles(bag)
     # end init
 
-    def playtiles(self,word):
+    def playtiles(self, word):
         # convert to uppercase
         word = word.upper()
         for l in word:
             self.tiles.remove(l)
     # end playtiles
 
-    def loadtiles(self,bag):
+    def loadtiles(self, bag):
         # add tiles to rack from bag
         # debugging: print(bag.tiles)
         while (len(self.tiles)<7 and bag.gettilecount() > 0):

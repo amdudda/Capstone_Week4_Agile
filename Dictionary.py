@@ -12,7 +12,7 @@ class Dictionary():
         fin.close()
     # end init
 
-    def find(self,word):
+    def find(self, word):
         # this reuses a bisection search I built while practicisng my code over the summer.
         # it returns true if the word is in the list and false otherwise.
 

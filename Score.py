@@ -1,5 +1,6 @@
 import Tiles
 import Player
+import Dictionary
 
 
 class score():
@@ -8,7 +9,6 @@ class score():
         self.points = 0
 
     def score_word(self, word, lexicon):
-        word = word.upper()
         self.points = 0
         if lexicon.find(word):
             for letter in word:
@@ -24,5 +24,5 @@ class score():
         return point_score
 
     # TODO??  I think this would be a better way to increment points - AMD
-    def increase_score(self,pts):
+    def increase_score(self, pts):
         self.points += pts
