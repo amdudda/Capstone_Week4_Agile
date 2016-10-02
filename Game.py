@@ -45,24 +45,25 @@ class Game():
                 # handle case where we run out of tiles and no valid plays remain
                 print("Game over!  Thank you for playing.\n")
                 break
+    # end playgame
 
     def score_the_play(self, a_play):
         print("That is a valid play!\n")
         # report the point value for the word - Tiles object has a method to do this
-        # this works - also check my suggested change in Score object.
         play_points = self.bag.wordscore(a_play, self.lexicon)
         print("You have scored %d points with '%s'!" % (play_points, a_play))
         # increment player's score here.
         self.player.score.increase_score(play_points)
-        # total_points = self.player.score.points(play_points)
         print("The total amount of points you have is %d" % self.player.get_score())  # total_points)
+        # report the best possible play available from the rack
         bestplay = self.player.rack.findbestword(self.bag, self.anagrams, self.lexicon)
         print("The highest score available was the word '%s', worth %d points." % bestplay)
+        # update the rack - remove old tiles & replace them.
         self.player.rack.playtiles(a_play)
         self.player.rack.loadtiles(self.bag)
-
-    # end playgame
+    # end score_the_play
 
     def showrack(self):
         print("You have the following letters available:")
         print(self.player.rack.tiles)
+    # end showrack
