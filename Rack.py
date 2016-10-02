@@ -64,9 +64,11 @@ class Rack():
 
     # a method to find the highest scoring word available in the rack (Anna will do this)
     def findbestword(self, tilebag,anagram_set,dictionary):
-        # this accepts a string and a tilebag and finds the highest scoring word possible from that set of letters
+        # this accepts a tilebag, and anagram lookup, and a dictionary, and finds the highest scoring
+        # word possible from the rack
         # it returns a tuple containing the best word and its point value
-        letters = ''.join(self.tiles)
+        # join the rack into the lowercase string the findanagrams method requires
+        letters = ''.join(self.tiles).lower()
         all_words = anagram_set.findanagrams(letters)
         best_word = ''
         high_score = 0

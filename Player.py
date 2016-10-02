@@ -15,6 +15,6 @@ class Player():
     def get_score(self):
         return self.score.points
 
-    # def points(self, score):
-    #     self.score += score
-    #     return score
+    # duplicate method in case it's useful - the long chain of dot notation gets tiring quickly.
+    def get_rack(self):
+        return self.rack.tiles

@@ -42,9 +42,10 @@ class Game():
                     self.player.score.increase_score(play_points)
                     # total_points = self.player.score.points(play_points)
                     print("The total amount of points you have is %d"% self.player.get_score()) # total_points)
+                    bestplay = self.player.rack.findbestword(self.bag,self.anagrams,self.lexicon)
+                    print("The highest score available was the word '%s', worth %d points." % bestplay)
                     self.player.rack.playtiles(a_play)
                     self.player.rack.loadtiles(self.bag)
-                    # self.Player.rack.
                 else:
                     print("That is not a valid play.  Please try again.\n")
                 print("There are " + str(self.bag.gettilecount()) + " tiles left.")
