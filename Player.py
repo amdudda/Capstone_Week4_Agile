@@ -12,10 +12,9 @@ class Player():
         # intial score zero
         self.score = Score.score()
 
-    #
-    # def get_point(self, points):
-    #     self.score += points
+    def get_score(self):
+        return self.score.points
 
-    def points(self, score):
-        score += score
-        return score
+    # def points(self, score):
+    #     self.score += score
+    #     return score
